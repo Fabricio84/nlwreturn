@@ -1,2 +1,2 @@
 # NLWReturn
-Desenvolvimento de um componente de feedback com React
+Desenvolvimento de um componente de feedback com React.
