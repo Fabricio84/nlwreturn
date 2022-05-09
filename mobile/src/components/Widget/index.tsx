@@ -1,12 +1,15 @@
 import React, { useRef } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Modal, TouchableOpacity } from 'react-native';
 import { ChatTeardropDots } from 'phosphor-react-native'
 import BottomSheet from '@gorhom/bottom-sheet'
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
+import { Copyright } from '../Copyright';
 
 import { styles } from './styles';
 import { theme } from '../../theme';
 
-export function Widget() {
+
+function Widget() {
     const bottomSheetRef = useRef<BottomSheet>(null);
 
     function handleOpen() {
@@ -27,11 +30,15 @@ export function Widget() {
         
         <BottomSheet 
         ref={bottomSheetRef}
-        snapPoints={[1, 280]}>
-
+        snapPoints={[1, 280]}
+        backgroundStyle={styles.modal}
+        handleIndicatorStyle={styles.indicator}>
+          <Copyright />
 
         </BottomSheet>
 
       </>
   );
 }
+
+export default gestureHandlerRootHOC(Widget);
